@@ -1,12 +1,13 @@
-export default function Layout({
+import Sidebar from "../components/Sidebar"
+export default function HomeLayout({
     children,
   }: {
     children: React.ReactNode
   }) {
     return (
-      <div>
-        hello{children}
-      </div>
+      <section className="flex flex-row gap-x-0">
+        <Sidebar />
+        {children}
+      </section>
     )
   }
-  
