@@ -8,7 +8,7 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model FriendRequest {
+model friendrequest {
   id      Int    @id @default(autoincrement())
   from_id String
   to_id   String

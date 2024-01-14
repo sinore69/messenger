@@ -1,18 +1,18 @@
+'use server'
 import prisma from '@/orm/prisma'
-async function sendRequest(friendId:string,userId:string|undefined) {
-  const duplicateRequest=await prisma.friendRequest.findFirst({
+async function sendRequest(friendId:string,userId:string) {
+  const duplicate=await prisma.friendrequest.findFirst({
     where:{
-        to_id:friendId
+      to_id:userId
     }
   })
-  if(duplicateRequest==null){
-    await prisma.friendRequest.create({
+  if(duplicate==null)
+    await prisma.friendrequest.create({
         data:{
-            from_id:userId!,
+            from_id:userId,
             to_id:friendId,
         },
       })
-  }
   
 }
 
