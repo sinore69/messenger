@@ -7,7 +7,7 @@ function page() {
   return (
     <div className='absolute top-5 left-2/4'>
         <div>
-            friend requiest
+            friend request
         </div>
         <div>
           <Searchfriend></Searchfriend>
