@@ -6,10 +6,9 @@ async function incomingRequests() {
     if(userId){
         const req=await prisma.friendrequest.findMany({
             where:{
-                to_id:userId
+                recieverId:userId
             }
         })
-        //console.log(req);
         return req;
     }
 

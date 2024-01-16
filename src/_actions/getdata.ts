@@ -1,8 +1,8 @@
-import { userNumber } from "@/utils/types";
+import { userName } from "@/utils/types";
 import axios from "axios";
-export async function getdata(data:userNumber){
+export async function getdata(data:userName){
     try {
-       const friend=await axios.get(`/api/friendrequest/+91${data.number}`)
+       const friend=await axios.get(`/api/friendrequest/${data.username}`)
       .then();
       return friend;
     } catch (error) {

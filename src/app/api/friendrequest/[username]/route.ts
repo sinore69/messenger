@@ -6,13 +6,11 @@ import sendRequest from "@/server actions/sendRequest";
 
 export async function GET(request:NextRequest,{params}:any) {
 
-    const {number}=params;
-    const phone_number=[number];
+    const {username}=params;
     const curruser=await currentUser();
-    
     try {
         const user=await clerkClient.users.getUserList({
-            phoneNumber:phone_number
+            username:username
         })
         
         if(curruser && user[0].id===curruser.id)

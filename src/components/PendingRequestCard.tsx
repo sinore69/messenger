@@ -1,25 +1,26 @@
-import React, { use } from 'react'
 import getUserList from '@/server actions/getUserList'
+import { User } from '@clerk/nextjs/server';
 import { useQuery } from '@tanstack/react-query';
-
 async function getUser(userId:string) {
     const user=await getUserList(userId);
-    console.log(user)
+    return user;
 }
-function RequestCard(props:any) {
+function PendingRequestCard(props:any) {
    const user=useQuery({
     queryKey:['userdata',props.id],
     queryFn:async ()=>{
         const data=await getUser(props.id);
-        if(data==undefined)
-        return [];
-        return data;
+        const jsonData=JSON.parse(data)
+        return jsonData as User;
     }
    })
-    console.log(user.data);
-  return (
-    <div >{}</div>
-  )
+   
+   return(
+    <div>
+      {user.data?.firstName}
+      {user.data?.lastName}
+    </div>
+   )
 }
 
-export default RequestCard
+export default PendingRequestCard
