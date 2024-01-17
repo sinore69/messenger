@@ -1,15 +1,14 @@
-'use server'
-import { clerkClient } from '@clerk/nextjs'
+"use server";
+import { clerkClient } from "@clerk/nextjs";
 
-
-async function getUserList(userId:string) {
+async function getUserList(userId: string) {
   try {
-    const user=await clerkClient.users.getUser(userId)
+    const user = await clerkClient.users.getUser(userId);
     return JSON.stringify(user);
   } catch (error) {
-    console.log(error)
-    return "user data not found"
+    console.log(error);
+    return "user data not found";
   }
 }
 
-export default getUserList
+export default getUserList;
