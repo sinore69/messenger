@@ -12,7 +12,7 @@ async function accreptRequest(userName:string) {
             username:currUser?.username!,
         },
         include:{
-            friends:{
+            friendsWith:{
                 where:{
                     username:senderId[0].username!,
                 }
@@ -25,7 +25,7 @@ async function accreptRequest(userName:string) {
         data:{
             username:currUser?.username!,
             id:currUser?.id!,
-            friends:{
+            friendsWith:{
                 create:{
                     id:senderId[0].id!,
                     username:senderId[0].username!,
@@ -33,7 +33,7 @@ async function accreptRequest(userName:string) {
             }
         },
         include:{
-            friends:true,
+            friendsWith:true,
         }
     })
     //remove friend request from database
