@@ -1,7 +1,8 @@
 import getUserList from '@/server actions/getUserList'
 import { User } from '@clerk/nextjs/server';
 import { useQuery } from '@tanstack/react-query';
-import accreptRequest from '@/server actions/accreptRequest';
+import acceptRequest from '@/server actions/acceptRequest';
+import declineRequests from '@/server actions/declineRequests';
 
 async function getUser(userId: string) {
   const user = await getUserList(userId);
@@ -33,8 +34,8 @@ function PendingRequestCard(props: any) {
       </div>
       </div>
       <div className='flex flex-row gap-x-2'>
-          <button onClick={()=>accreptRequest(user.data?.username!)}>acc</button>
-          <button>dec</button>
+          <button onClick={()=>acceptRequest(user.data?.username!)}>acc</button>
+          <button onClick={()=>declineRequests(user.data?.username!)}>dec</button>
         </div>
         
     </div>

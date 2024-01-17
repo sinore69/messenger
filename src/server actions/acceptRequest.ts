@@ -2,7 +2,7 @@
 import { currentUser } from "@clerk/nextjs";
 import { clerkClient } from "@clerk/nextjs";
 import prisma from "@/orm/prisma";
-async function accreptRequest(userName:string) {
+async function acceptRequest(userName:string) {
     try {
     const currUser = await currentUser();
     const senderId=await clerkClient.users.getUserList({username:[userName]})
@@ -50,4 +50,4 @@ async function accreptRequest(userName:string) {
     
 }
 
-export default accreptRequest
+export default acceptRequest
