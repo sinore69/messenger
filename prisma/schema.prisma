@@ -26,3 +26,11 @@ model friends {
   friendOf String?
   user     user?   @relation(fields: [friendOf], references: [username])
 }
+
+model chats{
+  id BigInt @id
+  senderId String
+  recieverId String
+  content String
+  time DateTime @default(now())
+}

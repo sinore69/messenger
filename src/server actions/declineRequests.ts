@@ -1,3 +1,4 @@
+"use server";
 import { currentUser } from "@clerk/nextjs";
 import { clerkClient } from "@clerk/nextjs";
 import prisma from "@/orm/prisma";
