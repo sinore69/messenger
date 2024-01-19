@@ -7,6 +7,7 @@ function page() {
       <div className=" w-2/12 flex flex-col items-center">
         <div className="">ActiveChat</div>
         <ActiveChat></ActiveChat>
+        <div>NewChat</div>
         <NewChat></NewChat>
 
       </div>
