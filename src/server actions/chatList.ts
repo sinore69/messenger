@@ -1,7 +1,7 @@
 "use server";
 import { currentUser } from "@clerk/nextjs";
 import prisma from "@/orm/prisma";
-async function getNewChats() {
+async function chatList() {
   const user = await currentUser();
   const res = await prisma.user.findFirst({
     where: {
@@ -14,4 +14,4 @@ async function getNewChats() {
   return res?.friendsWith;
 }
 
-export default getNewChats;
+export default chatList;
