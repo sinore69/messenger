@@ -7,7 +7,7 @@ function Sidebar() {
       <div className="h-screen w-14 bg-gray-200">
         <div className="h-14 w-14">logo</div>
         <div className="flex flex-col gap-y-4">
-          <Link href={"/home/chats"}>chats</Link>
+          <Link href={"/home/chats/none"}>chats</Link>
           <Link href={"/home/friends"}>friends</Link>
           <Link href={"/chats"}>profile</Link>
         </div>

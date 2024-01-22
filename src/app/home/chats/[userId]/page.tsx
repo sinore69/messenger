@@ -1,8 +1,11 @@
 import React from 'react'
 
-function page() {
+function page({params}:any) {
+  const {userId}=params
   return (
-    <div>page</div>
+    <div className='flex justify-center bg-gray-300 w-5/6'>
+      <div>{userId}</div>
+    </div>
   )
 }
 
