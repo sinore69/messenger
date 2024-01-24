@@ -2,14 +2,20 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { messages } from '@/utils/types';
-function InputMessage() {
+function InputMessage(chatId:{chatid:string}) {
     const {
         register,
         handleSubmit,
+        resetField,
         formState: { errors },
       } = useForm<messages>();
       const onSubmit: SubmitHandler<messages> = async (data) => {
-        console.log(data);
+        const [userid,partnerid]=chatId.chatid.split('--')
+        data.senderId=userid,
+        data.recieverId=partnerid
+
+        
+        resetField("text");
       };
   return (
     <div className='relative'>

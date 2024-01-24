@@ -9,5 +9,7 @@ export type newchat = {
 };
 
 export type messages = {
+  senderId: string;
   text: string;
+  recieverId: string;
 };

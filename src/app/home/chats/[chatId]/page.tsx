@@ -1,12 +1,17 @@
 import InputMessage from '@/components/InputMessage'
 import React from 'react'
 
-function page({params}:any) {
-  const {userId}=params
+interface pageprops{
+  params:{
+    chatId:string,
+  }
+}
+
+function page({params}:pageprops) {
+  const {chatId}=params
   return (
     <div className='flex justify-center bg-gray-300 w-5/6'>
-      
-      <InputMessage />
+      <InputMessage chatid={chatId} />
     </div>
   )
 }
