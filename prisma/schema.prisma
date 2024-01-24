@@ -28,11 +28,10 @@ model friends {
 }
 
 model chats {
-  id         BigInt   @id
+  id         Int   @id @unique @default(autoincrement())
   senderId   String
   recieverId String
   content    String
-  time       DateTime @default(now())
-  seen       Boolean
+  dateTime   DateTime @default(now())
   delivered  Boolean
 }

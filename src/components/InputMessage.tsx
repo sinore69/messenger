@@ -2,7 +2,8 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { messages } from "@/utils/types";
-function InputMessage(chatId: { chatid: string }) {
+import conversation from "@/server actions/conversation";
+export default function InputMessage(chatId: { chatid: string }) {
   const {
     register,
     handleSubmit,
@@ -14,15 +15,13 @@ function InputMessage(chatId: { chatid: string }) {
       const [userid, partnerid] = chatId.chatid.split("--");
       const date = new Date();
       (data.senderId = userid), (data.recieverId = partnerid);
-      (data.delivered = false), (data.seen = false);
-      (data.year = date.getFullYear()),
-      (data.month = date.getMonth()),
-      (data.day = date.getDay()),
-      (data.hour = date.getHours()),
-      (data.minute = date.getMinutes());
+      data.delivered = false;
       if (data.text !== undefined) {
         data.text = data.text.trim();
-        if (data.text !== "") console.log(data);
+        if (data.text !== "") {
+          console.log(data);
+          conversation(data);
+        }
         resetField("text");
       }
     } catch (error) {
@@ -43,9 +42,4 @@ function InputMessage(chatId: { chatid: string }) {
       </section>
     </div>
   );
-}
-
-export default InputMessage;
-function getDate(): Uint8Array {
-  throw new Error("Function not implemented.");
 }

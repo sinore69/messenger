@@ -13,10 +13,4 @@ export type messages = {
   text: string;
   recieverId: string;
   delivered: boolean;
-  seen: boolean;
-  year:number,
-  month:number,
-  day:number,
-  hour:number,
-  minute:number
 };
