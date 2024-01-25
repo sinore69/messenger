@@ -1,8 +1,8 @@
 import React from 'react'
-
-function TextCrad() {
+import { chats } from '@/utils/types'
+function TextCrad(chat:{chat:chats}) {
   return (
-    <div>TestCrad</div>
+    <div>{chat.chat.content}</div>
   )
 }
 

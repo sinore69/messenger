@@ -14,3 +14,12 @@ export type messages = {
   recieverId: string;
   delivered: boolean;
 };
+
+export type chats = {
+  id: number;
+  senderId: String;
+  recieverId: String;
+  content: String;
+  dateTime: Date;
+  delivered: Boolean;
+};

@@ -21,7 +21,7 @@ function page({ params }: pageprops) {
     <div className="flex justify-center bg-gray-300 w-5/6">
       <div className="flex justify-item-center flex-col bg-slate-400 w-full">
         <ConversationBanner chatid={chatId}/>
-        <ChatHistory />
+        <ChatHistory chatid={chatId}/>
       </div>
       <div className="absolute left-2/4 bottom-1">
         <InputMessage chatid={chatId} />
