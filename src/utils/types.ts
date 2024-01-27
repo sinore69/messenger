@@ -23,3 +23,7 @@ export type chats = {
   dateTime: Date;
   delivered: Boolean;
 };
+
+export type chatid = {
+  chatId: string;
+};

@@ -14,7 +14,7 @@ function ChatHistory(chatId: { chatid: string }) {
     <div className=" pl-2 flex bg-gray-300 h-full w-full">
       <div>
         {history.data?.map((item: chats) => (
-          <TextCrad key={item.id} chat={item}></TextCrad>
+          <TextCrad key={item.id} chat={item} chatId={chatId.chatid} />
         ))}
       </div>
     </div>
