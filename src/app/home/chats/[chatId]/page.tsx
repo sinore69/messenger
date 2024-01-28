@@ -20,12 +20,12 @@ async function page({ params }: pageprops) {
       </div>
     );
   return (
-    <div className="flex justify-center bg-gray-300 w-5/6">
-      <div className="flex justify-item-center flex-col bg-slate-400 w-full">
+    <div className="flex bg-gray-300 w-5/6">
+      <div className="flex flex-col bg-slate-400 w-full">
         <ConversationBanner chatid={chatId} />
         <ChatHistory chatid={chatId} />
       </div>
-      <div className="absolute left-2/4 bottom-1">
+      <div className="absolute bottom-0 bg-red-300">
         <InputMessage chatid={chatId} />
       </div>
     </div>

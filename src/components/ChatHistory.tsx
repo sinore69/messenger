@@ -11,7 +11,7 @@ function ChatHistory(chatId: { chatid: string }) {
     queryFn: async () => getChats(userid, partnerid),
   });
   return (
-    <div className=" pl-1 pt-1 flex bg-gray-300 h-full w-full">
+    <div className=" pl-1 pt-1 flex bg-gray-300 h-full w-full overflow-auto">
       <div>
         {history.data?.map((item: chats) => (
           <TextCrad key={item.id} chat={item} chatId={chatId.chatid} />

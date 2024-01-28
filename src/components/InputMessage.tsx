@@ -28,17 +28,21 @@ export default function InputMessage(chatId: { chatid: string }) {
     }
   };
   return (
+    <div className="flex flex-row">
+      <div className="h-10 w-96 bg-gray-300  "></div>
     <div className="relative">
-      <section className="absolute bottom-1">
+      <section className="absolute bottom-0">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row">
           <input
             placeholder="enter message"
             {...register("text")}
             className="h-10 w-96"
           />
-          <button type="submit">enter</button>
+          <button type="submit" className="h-10 w-12 bg-gray-300">enter</button>
+          <div className="h-10 w-80 bg-gray-300"></div>
         </form>
       </section>
+    </div>
     </div>
   );
 }
