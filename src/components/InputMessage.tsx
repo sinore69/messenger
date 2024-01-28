@@ -13,7 +13,6 @@ export default function InputMessage(chatId: { chatid: string }) {
   const onSubmit: SubmitHandler<messages> = async (data) => {
     try {
       const [userid, partnerid] = chatId.chatid.split("--");
-      const date = new Date();
       (data.senderId = userid), (data.recieverId = partnerid);
       data.delivered = false;
       if (data.text !== undefined) {

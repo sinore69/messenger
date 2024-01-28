@@ -7,7 +7,7 @@ export default function HomeLayout({
   return (
     <div className="h-screen w-screen bg-gray-400 flex flex-row">
       <div className=" w-2/12 flex flex-col items-center">
-        <div className="">ActiveChat</div>
+        <div className="p-2">ActiveChat</div>
         <ActiveChat></ActiveChat>
       </div>
       {children}
