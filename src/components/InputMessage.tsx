@@ -18,7 +18,6 @@ export default function InputMessage(chatId: { chatid: string }) {
       if (data.text !== undefined) {
         data.text = data.text.trim();
         if (data.text !== "") {
-          console.log(data);
           conversation(data);
         }
         resetField("text");

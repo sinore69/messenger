@@ -24,6 +24,7 @@ async function page({ params }: pageprops) {
       <div className="flex flex-col bg-slate-400 w-full">
         <ConversationBanner chatid={chatId} />
         <ChatHistory chatid={chatId} />
+        <div className="h-10 w-full bg-gray-300"></div>
       </div>
       <div className="absolute bottom-0 bg-red-300">
         <InputMessage chatid={chatId} />

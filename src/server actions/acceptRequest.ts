@@ -2,6 +2,7 @@
 import { currentUser } from "@clerk/nextjs";
 import { clerkClient } from "@clerk/nextjs";
 import prisma from "@/orm/prisma";
+import { error } from "console";
 async function acceptRequest(userName: string) {
   try {
     const currUser = await currentUser();
@@ -23,20 +24,45 @@ async function acceptRequest(userName: string) {
     });
     //if record does not exist
     if (duplicate == null)
-      await prisma.user.create({
+    //create new friend from current user's side
+      await prisma.user
+        .create({
+          data: {
+            username: currUser?.username!,
+            id: currUser?.id!,
+            friendsWith: {
+              create: {
+                id: senderId[0].id!,
+                username: senderId[0].username!,
+              },
+            },
+          },
+          include: {
+            friendsWith: true,
+          },
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        //create friend from reciever's side
+    await prisma.user
+      .create({
         data: {
-          username: currUser?.username!,
-          id: currUser?.id!,
+          id: senderId[0].id!,
+          username: senderId[0].username!,
           friendsWith: {
             create: {
-              id: senderId[0].id!,
-              username: senderId[0].username!,
+              id: currUser?.id!,
+              username: currUser?.username!,
             },
           },
         },
         include: {
           friendsWith: true,
         },
+      })
+      .catch((error) => {
+        console.log(error);
       });
     //remove friend request from database
     if (currUser)
