@@ -28,7 +28,7 @@ model friends {
 }
 
 model chats {
-  id         Int   @id @unique @default(autoincrement())
+  id         Int      @id @unique @default(autoincrement())
   senderId   String
   recieverId String
   content    String

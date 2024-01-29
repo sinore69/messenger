@@ -11,8 +11,7 @@ async function chatList() {
       friendsWith: true,
     },
   });
-  if(res?.friendsWith===undefined)
-  return []
+  if (res?.friendsWith === undefined) return [];
   return res?.friendsWith;
 }
 
