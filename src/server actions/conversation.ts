@@ -13,7 +13,6 @@ async function conversation(data: messages) {
       },
     });
     const channel = [data.senderId, data.recieverId].sort().toString();
-    //console.log(channel);
     await pusherServer.trigger(channel, "newMessages", res);
   } catch (error) {
     console.log(error);

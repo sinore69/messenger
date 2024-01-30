@@ -27,7 +27,7 @@ async function page({ params }: pageprops) {
     <div className="flex bg-gray-300 w-5/6">
       <div className="flex flex-col bg-slate-400 w-full">
         <ConversationBanner chatid={chatId} />
-        <ChatHistory conversation={res} chatId={chatId}/>
+        <ChatHistory conversation={res} chatId={chatId} />
         <div className="h-10 w-full bg-gray-300"></div>
       </div>
       <div className="absolute bottom-0 bg-red-300">

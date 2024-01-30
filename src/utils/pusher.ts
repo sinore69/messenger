@@ -7,9 +7,8 @@ export const pusherServer = new PusherServer({
   secret: process.env.SECRET!,
   cluster: process.env.CLUSTER!,
   useTLS: true,
-},
-);
+});
 
-export const pusherClient = new PusherClient("3176c1a19dee99ac5c48",{
-  cluster:"ap2",
+export const pusherClient = new PusherClient("3176c1a19dee99ac5c48", {
+  cluster: "ap2",
 });

@@ -1,13 +1,7 @@
 "use client";
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import getChats from "@/server actions/getChats";
 import { chatid, chats } from "@/utils/types";
 import TextCrad from "./TextCrad";
-import { useEffect, useState } from "react";
-import { pusherClient } from "@/utils/pusher";
-import initialMessages from "@/server actions/query";
-import { FC } from "react";
 interface pageprops extends chatid{
   conversation:chats[]|void,
 }
