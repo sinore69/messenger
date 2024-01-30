@@ -1,9 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import getChats from "./getChats";
-export default  function initialMessages(userId: string, partnerId: string) {
-  const history = useQuery({
-    queryKey: ["conversation"],
-    queryFn: async () =>await getChats(userId, partnerId),
-  });  
-  return history.data;
+export default async function initialMessages(
+  userId: string,
+  partnerId: string
+) {
+  const history = await getChats(userId, partnerId)
+    .then()
+    .catch((error) => console.log(error));
+  return history;
 }
