@@ -16,7 +16,7 @@ async function getChats(userId: string, partnerId: string) {
         ],
       },
     });
-    if (res === undefined) return [];
+    //if (res === undefined) return [];
     return res;
   } catch (error) {
     console.log(error);

@@ -17,11 +17,11 @@ export type messages = {
 
 export type chats = {
   id: number;
-  senderId: String;
-  recieverId: String;
-  content: String;
+  senderId: string;
+  recieverId: string;
+  content: string;
   dateTime: Date;
-  delivered: Boolean;
+  delivered: boolean;
 };
 
 export type chatid = {
