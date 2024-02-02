@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 
-function ConversationBanner(chatId:{chatid:string}) {
+function ConversationBanner(chatId: { chatid: string }) {
   const [userid, partnerid] = chatId.chatid.split("--");
-  return (
-    <div className='h-11'>{partnerid}</div>
-  )
+  return <div className="h-11">{partnerid}</div>;
 }
 
-export default ConversationBanner
+export default ConversationBanner;
