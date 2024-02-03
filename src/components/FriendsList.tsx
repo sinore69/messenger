@@ -8,21 +8,34 @@ async function getFriendRequest() {
   return response;
 }
 
-const FriendsList = () => {
+const PendingFriendsList = () => {
   const requests = useQuery({
     queryKey: ["requests"],
     queryFn: getFriendRequest,
   });
+  if (requests.isLoading)
+    return (
+      <>
+        <div>loading...</div>
+      </>
+    );
+  if (requests.data?.length !== 0) {
+    return (
+      <>
+        {requests.data?.map((item: any) => (
+          <section key={item.id}>
+            <PendingRequestCard id={item.senderId}></PendingRequestCard>
+          </section>
+        ))}
+      </>
+    );
+  }
 
   return (
     <>
-      {requests.data?.map((item: any) => (
-        <section key={item.id}>
-          <PendingRequestCard id={item.senderId}></PendingRequestCard>
-        </section>
-      ))}
+      <div>no pending requests</div>
     </>
   );
 };
 
-export default FriendsList;
+export default PendingFriendsList;

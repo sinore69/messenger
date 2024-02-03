@@ -17,8 +17,8 @@ export async function GET(request: NextRequest, { params }: any) {
 
     const userjson = clientuser(user[0]);
     if (curruser && userjson) {
-      await sendRequest(userjson.id, curruser.id);
-      return NextResponse.json("request sent");
+      const res = await sendRequest(userjson.username!, curruser.username!);
+      return NextResponse.json(res);
     }
   } catch (error) {
     console.log(error);

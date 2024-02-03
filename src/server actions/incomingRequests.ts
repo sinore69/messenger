@@ -1,12 +1,12 @@
 "use server";
 import prisma from "@/orm/prisma";
-import { auth } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs";
 async function incomingRequests() {
-  const { userId } = auth();
-  if (userId) {
+  const user = await currentUser();
+  if (user) {
     const req = await prisma.friendrequest.findMany({
       where: {
-        recieverId: userId,
+        recieverId: user.id!,
       },
     });
     return req;
