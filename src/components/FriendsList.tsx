@@ -31,13 +31,13 @@ const PendingFriendsList = () => {
     );
   if (requests.data?.length !== 0) {
     return (
-      <>
+      <div className="">
         {requests.data?.map((item: any) => (
           <section key={item.id}>
             <PendingRequestCard id={item.senderId}></PendingRequestCard>
           </section>
         ))}
-      </>
+      </div>
     );
   }
 
