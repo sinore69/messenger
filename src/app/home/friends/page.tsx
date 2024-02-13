@@ -11,7 +11,7 @@ function page() {
           <PendingFriendsList />
         </div>
       </div>
-      <div className="flex flex-row justify-center w-10/12 bg-gray-300">
+      <div className="flex flex-row justify-center w-10/12 bg-white">
         <div className="flex flex-col">
           <div>Add a Friend</div>
           <div className="w-96 h-52 ">

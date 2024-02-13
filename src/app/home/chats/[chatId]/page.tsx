@@ -2,7 +2,6 @@ import ChatHistory from "@/components/ChatHistory";
 import ConversationBanner from "@/components/ConversationBanner";
 import InputMessage from "@/components/InputMessage";
 import getChats from "@/server actions/getChats";
-import { chats } from "@/utils/types";
 import { currentUser } from "@clerk/nextjs";
 import React from "react";
 
@@ -30,9 +29,9 @@ async function page({ params }: pageprops) {
         <div className="flex flex-col bg-martinique-500 w-full">
           <ConversationBanner chatid={chatId} />
           <ChatHistory conversation={res} chatId={chatId} />
-          <div className="h-10 w-full bg-gray-300"></div>
+          <div className="h-10 w-full bg-white"></div>
         </div>
-        <div className="absolute bottom-0 bg-red-300">
+        <div className="absolute bottom-0 bg-white">
           <InputMessage chatid={chatId} />
         </div>
       </div>

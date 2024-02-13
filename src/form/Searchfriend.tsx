@@ -21,17 +21,17 @@ function Searchfriend() {
   };
 
   return (
-    <div className="">
+    <div className=" bg-deluge-300">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-row bg-deluge-600"
+        className="flex flex-row bg-deluge-600 gap-x-2 p-2"
       >
         <input
           placeholder="Username..."
           {...register("username")}
-          className="h-11 w-full p-2 rounded-lg"
+          className="h-11 w-full p-2 rounded-lg border-2"
         />
-        <button type="submit" className="p-2 bg-red-300 font-semibold">
+        <button type="submit" className="p-2 bg-red-300 rounded-lg h-11">
           search
         </button>
       </form>
