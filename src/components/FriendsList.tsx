@@ -15,9 +15,19 @@ const PendingFriendsList = () => {
   });
   if (requests.isLoading)
     return (
-      <>
-        <div>loading...</div>
-      </>
+      <div>
+        <div className="flex items-center space-x-1">
+          <div className="animate-pulse bg-deluge-300 h-10 w-10 rounded-full"></div>
+          <div className="space-y-1">
+            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[180px]">
+              {" "}
+            </div>
+            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[170px]">
+              {" "}
+            </div>
+          </div>
+        </div>
+      </div>
     );
   if (requests.data?.length !== 0) {
     return (
@@ -33,7 +43,7 @@ const PendingFriendsList = () => {
 
   return (
     <>
-      <div>no pending requests</div>
+      <div className="h-10 p-4 text-l">No pending requests</div>
     </>
   );
 };

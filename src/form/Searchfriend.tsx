@@ -4,6 +4,7 @@ import { userName } from "@/utils/types";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
+import { IoPersonAddSharp } from "react-icons/io5";
 
 const notify = (res: string) => toast(res);
 
@@ -21,18 +22,16 @@ function Searchfriend() {
   };
 
   return (
-    <div className=" bg-deluge-300">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-row bg-deluge-600 gap-x-2 p-2"
-      >
+    <div className="">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row ">
         <input
           placeholder="Username..."
+          autoComplete="off"
           {...register("username")}
-          className="h-11 w-full p-2 rounded-lg border-2"
+          className="h-11 w-full p-2 rounded-lg border-2 focus:outline-deluge-500"
         />
-        <button type="submit" className="p-2 bg-red-300 rounded-lg h-11">
-          search
+        <button type="submit" className="p-2 rounded-lg h-11">
+          <IoPersonAddSharp className="" size={30} />
         </button>
       </form>
       <section>

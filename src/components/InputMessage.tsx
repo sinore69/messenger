@@ -3,6 +3,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { messages } from "@/utils/types";
 import conversation from "@/server actions/conversation";
+import { LuSendHorizonal } from "react-icons/lu";
 export default function InputMessage(chatId: { chatid: string }) {
   const {
     register,
@@ -28,19 +29,27 @@ export default function InputMessage(chatId: { chatid: string }) {
   };
   return (
     <div className="flex flex-row">
-      <div className="h-11 w-96 bg-white  "></div>
+      <div className="h-10 w-96 bg-white  "></div>
       <div className="relative">
         <section className="absolute bottom-0">
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row ">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-row gap-x-0"
+          >
             <div className="">
               <input
+                autoComplete="off"
+                contentEditable="true"
                 placeholder="Type a message"
                 {...register("text")}
-                className="h-11 w-96 rounded-md p-1 border border-deluge-400 focus:outline-deluge-500 focus:border-3"
+                className="h-10 w-96 rounded-l-lg p-1 border border-deluge-400 focus:outline-deluge-500 focus:border-3"
               />
             </div>
-            <button type="submit" className="h-11 w-12 bg-gray-300 rounded-md">
-              enter
+            <button
+              type="submit"
+              className="h-10 w-12 bg-deluge-400 rounded-r-lg"
+            >
+              <LuSendHorizonal className="w-12 h-8" />
             </button>
           </form>
         </section>

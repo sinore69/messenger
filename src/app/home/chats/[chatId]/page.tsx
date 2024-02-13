@@ -19,14 +19,14 @@ async function page({ params }: pageprops) {
   );
   if (chatId === "none" || userid !== curruser?.username)
     return (
-      <div className="flex bg-gray-300 w-5/6 justify-center pt-56">
-        <div>select a chat</div>
+      <div className="flex bg-white w-5/6 justify-center pt-56 border-l-2 border-deluge-300 text-xl">
+        <div className="text-deluge-300">Start a conversation</div>
       </div>
     );
   if (res)
     return (
-      <div className="flex bg-gray-300 w-5/6">
-        <div className="flex flex-col bg-martinique-500 w-full">
+      <div className="flex w-5/6 border-l-2 border-deluge-300">
+        <div className="flex flex-col bg-white w-full">
           <ConversationBanner chatid={chatId} />
           <ChatHistory conversation={res} chatId={chatId} />
           <div className="h-10 w-full bg-white"></div>

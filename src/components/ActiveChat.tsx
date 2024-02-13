@@ -9,12 +9,27 @@ function NewChat() {
     queryKey: ["chats"],
     queryFn: async () => chatList(),
   });
-  if (chats.isLoading) return <div>loading</div>;
+  if (chats.isLoading)
+    return (
+      <div>
+        <div className="flex items-center space-x-1">
+          <div className="animate-pulse bg-deluge-300 h-10 w-10 rounded-full"></div>
+          <div className="space-y-1">
+            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[180px]">
+              {" "}
+            </div>
+            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[170px]">
+              {" "}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   return (
     <div>
       {chats.data?.map((item: newchat) => (
         <Link
-          className="bg-gray-300 flex w-56 h-12 font-bold "
+          className="flex w-56 h-12 font-semibold text-xl hover:bg-deluge-100 p-2 rounded-md "
           key={item.id}
           href={`/home/chats/${item.friendOf}--${item.username}`}
         >
