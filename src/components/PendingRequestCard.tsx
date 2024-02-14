@@ -20,8 +20,8 @@ function PendingRequestCard(props: any) {
     return (
       <>
         {user.data.map((item: User) => (
-          <div className="flex flex-row gap-x-4">
-            <div key={item.id}>{item.username}</div>
+          <div key={item.id} className="flex flex-row gap-x-4">
+            <div >{item.username}</div>
             <div className="flex flex-row gap-x-2">
               <button onClick={() => acceptRequest(item.username!)}>acc</button>
               <button onClick={() => declineRequests(item.username!)}>
