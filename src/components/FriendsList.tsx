@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import incomingRequests from "@/server actions/incomingRequests";
 import PendingRequestCard from "./PendingRequestCard";
-
+import { friendrequest } from "@/utils/types";
 async function getFriendRequest() {
   const response = await incomingRequests();
   return response;
@@ -32,7 +32,7 @@ const PendingFriendsList = () => {
   if (requests.data?.length !== 0) {
     return (
       <div className="">
-        {requests.data?.map((item: any) => (
+        {requests.data?.map((item: friendrequest) => (
           <section key={item.id}>
             <PendingRequestCard id={item.senderId}></PendingRequestCard>
           </section>

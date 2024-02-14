@@ -27,3 +27,9 @@ export type chats = {
 export type chatid = {
   chatId: string;
 };
+
+export type friendrequest = {
+  id: number;
+  senderId: string;
+  recieverId: string;
+};

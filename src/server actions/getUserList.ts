@@ -1,13 +1,13 @@
 "use server";
 import { clerkClient } from "@clerk/nextjs";
-
-async function getUserList(userId: string) {
+async function getUserList(userName: string) {
   try {
-    const user = await clerkClient.users.getUser(userId);
-    return JSON.stringify(user);
+    const user = await clerkClient.users.getUserList({ username: [userName] });
+    const res = JSON.stringify(user);
+    const ans=JSON.parse(res);
+    return ans;
   } catch (error) {
     console.log(error);
-    return "user data not found";
   }
 }
 

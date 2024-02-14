@@ -4,38 +4,33 @@ import { useQuery } from "@tanstack/react-query";
 import acceptRequest from "@/server actions/acceptRequest";
 import declineRequests from "@/server actions/declineRequests";
 
-async function getUser(userId: string) {
-  const user = await getUserList(userId);
-  return user;
+async function getUser(senderId: string) {
+  const user = await getUserList(senderId);
+  return user as User[];
 }
 function PendingRequestCard(props: any) {
   const user = useQuery({
     queryKey: ["userdata", props.id],
     queryFn: async () => {
       const data = await getUser(props.id);
-      const jsonData = JSON.parse(data);
-      return jsonData as User;
+      return data;
     },
   });
   if (user.data)
     return (
-      <div className="pt-2 pl-2 flex flex-row gap-x-20">
-        <div>
-          <div>{user.data?.username}</div>
-          <div className="flex gap-x-1 flex-row">
-            <div>{user.data?.firstName}</div>
-            <div>{user.data?.lastName}</div>
+      <>
+        {user.data.map((item: User) => (
+          <div className="flex flex-row gap-x-4">
+            <div key={item.id}>{item.username}</div>
+            <div className="flex flex-row gap-x-2">
+              <button onClick={() => acceptRequest(item.username!)}>acc</button>
+              <button onClick={() => declineRequests(item.username!)}>
+                dec
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="flex flex-row gap-x-2">
-          <button onClick={() => acceptRequest(user.data?.username!)}>
-            acc
-          </button>
-          <button onClick={() => declineRequests(user.data?.username!)}>
-            dec
-          </button>
-        </div>
-      </div>
+        ))}
+      </>
     );
 }
 
