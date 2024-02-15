@@ -1,6 +1,6 @@
 "use server";
 import { clerkClient } from "@clerk/nextjs";
-async function getUserList(userName: string) {
+async function getUserData(userName: string) {
   try {
     const user = await clerkClient.users.getUserList({ username: [userName] });
     const res = JSON.stringify(user);
@@ -11,4 +11,4 @@ async function getUserList(userName: string) {
   }
 }
 
-export default getUserList;
+export default getUserData;

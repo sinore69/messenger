@@ -23,7 +23,7 @@ const ChatHistory: React.FC<pageprops> = ({ conversation, chatId }) => {
       pusherClient.unsubscribe(channel);
       pusherClient.unbind("newMessages", handler);
     };
-  }, [chat]);
+  }, [chat,channel]);
   return (
     <div className=" pl-1 pt-1 flex bg-white h-full w-full overflow-auto">
       <div>

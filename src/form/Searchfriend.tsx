@@ -28,7 +28,7 @@ function Searchfriend() {
           placeholder="Username..."
           autoComplete="off"
           {...register("username")}
-          className="h-11 w-full p-2 rounded-lg border-2 focus:outline-deluge-500"
+          className="h-11 w-full p-2 rounded-lg  focus:outline-deluge-500 border border-deluge-300"
         />
         <button type="submit" className="p-2 rounded-lg h-11">
           <IoPersonAddSharp className="" size={30} />

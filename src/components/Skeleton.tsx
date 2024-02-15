@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Skeleton() {
   return (
@@ -62,8 +62,20 @@ function Skeleton() {
           </div>
         </div>
       </div>
+      <div className="h-1"></div>
+      <div className="flex items-center space-x-1">
+        <div className="animate-pulse bg-deluge-300 h-10 w-10 rounded-full"></div>
+        <div className="space-y-1">
+          <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[80px]">
+            {" "}
+          </div>
+          <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[70px]">
+            {" "}
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Skeleton
+export default Skeleton;

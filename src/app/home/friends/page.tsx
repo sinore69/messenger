@@ -16,7 +16,9 @@ function page() {
       </div>
       <div className="flex flex-row justify-center w-10/12 bg-white border-l-2 border-deluge-300">
         <div className="flex flex-col">
-          <div>Add a Friend</div>
+          <div className="text-3xl font-semibold text-deluge-600 p-3">
+            Add a Friend
+          </div>
           <div className="w-96 h-52 ">
             <Searchfriend />
           </div>

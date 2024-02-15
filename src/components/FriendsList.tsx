@@ -26,11 +26,10 @@ const PendingFriendsList = () => {
       </div>
     );
   }
-
   return (
-    <>
-      <div className="h-10 p-4 text-l">No pending requests</div>
-    </>
+    <div className="h-10 p-4 text-xl font-semibold text-deluge-300">
+      No pending requests
+    </div>
   );
 };
 

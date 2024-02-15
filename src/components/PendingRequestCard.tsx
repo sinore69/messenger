@@ -1,14 +1,17 @@
-import getUserList from "@/server actions/getUserList";
+import getUserData from "@/server actions/getUserList";
 import { User } from "@clerk/nextjs/server";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import acceptRequest from "@/server actions/acceptRequest";
 import declineRequests from "@/server actions/declineRequests";
-
+interface pageprops {
+  id: string;
+}
 async function getUser(senderId: string) {
-  const user = await getUserList(senderId);
+  const user = await getUserData(senderId);
   return user as User[];
 }
-function PendingRequestCard(props: any) {
+function PendingRequestCard(props: pageprops) {
+  const queryClient = useQueryClient();
   const user = useQuery({
     queryKey: ["userdata", props.id],
     queryFn: async () => {
@@ -27,13 +30,21 @@ function PendingRequestCard(props: any) {
             <div className="font-semibold">{item.username}</div>
             <div className="flex flex-row gap-x-3">
               <button
-                onClick={() => acceptRequest(item.username!)}
+                onClick={() =>
+                  acceptRequest(item.username!).then((res) => {
+                    queryClient.invalidateQueries({ queryKey: ["requests"] });
+                  })
+                }
                 className="bg-deluge-300 p-1 rounded-md h-8"
               >
                 acc
               </button>
               <button
-                onClick={() => declineRequests(item.username!)}
+                onClick={() =>
+                  declineRequests(item.username!).then((res) => {
+                    queryClient.invalidateQueries({ queryKey: ["requests"] });
+                  })
+                }
                 className="bg-deluge-300 p-1 rounded-md h-8"
               >
                 dec
