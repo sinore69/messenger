@@ -12,8 +12,8 @@ async function declineRequests(userName: string) {
     if (currUser)
       await prisma.friendrequest.deleteMany({
         where: {
-          recieverId: currUser.id!,
-          senderId: senderId[0].id!,
+          recieverId: currUser.username!,
+          senderId: senderId[0].username!,
         },
       });
   } catch (error) {

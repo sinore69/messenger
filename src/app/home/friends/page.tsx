@@ -10,6 +10,7 @@ function page() {
           <div className="h-10 bg-deluge-200 p-2 text-l font-semibold">
             Pending requests
           </div>
+          <div className="h-1"></div>
           <PendingFriendsList />
         </div>
       </div>
