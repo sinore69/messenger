@@ -3,6 +3,7 @@ import React from "react";
 import incomingRequests from "@/server actions/incomingRequests";
 import PendingRequestCard from "./PendingRequestCard";
 import { friendrequest } from "@/utils/types";
+import Skeleton from "./Skeleton";
 async function getFriendRequest() {
   const response = await incomingRequests();
   return response;
@@ -13,22 +14,7 @@ const PendingFriendsList = () => {
     queryKey: ["requests"],
     queryFn: getFriendRequest,
   });
-  if (requests.isLoading)
-    return (
-      <div>
-        <div className="flex items-center space-x-1">
-          <div className="animate-pulse bg-deluge-300 h-10 w-10 rounded-full"></div>
-          <div className="space-y-1">
-            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[180px]">
-              {" "}
-            </div>
-            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[170px]">
-              {" "}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (requests.isLoading) return <Skeleton></Skeleton>;
   if (requests.data?.length !== 0) {
     return (
       <div className="">

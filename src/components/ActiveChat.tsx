@@ -4,27 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 import chatList from "@/server actions/chatList";
 import { newchat } from "@/utils/types";
 import Link from "next/link";
+import Skeleton from "./Skeleton";
 function NewChat() {
   const chats = useQuery({
     queryKey: ["chats"],
     queryFn: async () => chatList(),
   });
-  if (chats.isLoading)
-    return (
-      <div>
-        <div className="flex items-center space-x-1">
-          <div className="animate-pulse bg-deluge-300 h-10 w-10 rounded-full"></div>
-          <div className="space-y-1">
-            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[180px]">
-              {" "}
-            </div>
-            <div className="animate-pulse rounded-md bg-deluge-300 h-4 w-[170px]">
-              {" "}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (chats.isLoading) return <Skeleton></Skeleton>;
   return (
     <div>
       {chats.data?.map((item: newchat) => (
