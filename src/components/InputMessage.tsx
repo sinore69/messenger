@@ -29,7 +29,7 @@ export default function InputMessage(chatId: { chatid: string }) {
   };
   return (
     <div className="flex flex-row">
-      <div className="h-10 w-96 bg-white  "></div>
+      <div className="h-10 lg:w-96 sm:w-9"></div>
       <div className="relative">
         <section className="absolute bottom-0">
           <form
@@ -42,7 +42,7 @@ export default function InputMessage(chatId: { chatid: string }) {
                 contentEditable="true"
                 placeholder="Type a message"
                 {...register("text")}
-                className="h-10 w-96 rounded-l-lg p-1 border border-deluge-400 focus:outline-deluge-500 focus:border-3"
+                className="h-10 w-96 sm:w-80 rounded-l-lg p-1 border border-deluge-400 focus:outline-deluge-500 focus:border-3"
               />
             </div>
             <button

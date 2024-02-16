@@ -9,9 +9,9 @@ const TextCrad: React.FC<props> = ({ chat, chatId }) => {
   if (chat.senderId === userid)
     return (
       <div className="flex flex-col">
-        <div className="flex flex-row gap-x-80 ">
-          <div className=" w-96"></div>
-          <div className=" w-96">
+        <div className="flex flex-row xl:gap-x-80 lg:gap-x-60">
+          <div className="xl:w-96 lg:w-56 md:w-72 "></div>
+          <div className="w-96">
             <div className="bg-deluge-300 text-justify rounded-lg p-2 float-right">
               {chat.content}
             </div>
@@ -22,13 +22,13 @@ const TextCrad: React.FC<props> = ({ chat, chatId }) => {
     );
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row gap-x-80">
-        <div className="w-96">
+      <div className="flex flex-row gap-x-80 md:gap-x-40 sm:gap-x-0">
+        <div className="xl:w-96 sm:w-[390px]">
           <div className=" bg-deluge-100 p-2 rounded-lg float-left text-justify">
             {chat.content}
           </div>
         </div>
-        <div className="w-96 text-right"></div>
+        <div className="xl:w-96 text-right"></div>
       </div>
       <div className="h-1"></div>
     </div>

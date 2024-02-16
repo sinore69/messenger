@@ -16,7 +16,7 @@ function NewChat() {
       {chats.data?.map((item: newchat) => (
         <div key={item.id}>
           <Link
-            className="flex w-60 h-12 font-semibold text-xl hover:bg-deluge-100 p-2 rounded-md focus:bg-deluge-100 border border-deluge-200"
+            className="flex lg:w-60 sm:w-48 h-12 font-semibold text-xl hover:bg-deluge-100 p-2 rounded-md focus:bg-deluge-100 border border-deluge-200"
             href={`/home/chats/${item.friendOf}--${item.username}`}
           >
             {item.username}

@@ -18,7 +18,7 @@ const ChatHistory: React.FC<pageprops> = ({ conversation, chatId }) => {
       setChat((prev) => [...prev, newMessage]);
     };
     pusherClient.bind("newMessages", handler);
-    lastseen.current?.scrollIntoView({ behavior: "smooth" });
+    lastseen.current?.scrollIntoView({ behavior: "instant" });
     return () => {
       pusherClient.unsubscribe(channel);
       pusherClient.unbind("newMessages", handler);
