@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaUserFriends } from "react-icons/fa";
 import { IoMdChatbubbles } from "react-icons/io";
 import { BiLogoMeta } from "react-icons/bi";
+import { FaRobot } from "react-icons/fa";
 
 function Sidebar() {
   return (
@@ -24,6 +25,9 @@ function Sidebar() {
             className="focus:bg-deluge-300 rounded-full"
           >
             <FaUserFriends className="pl-2" size={40} />
+          </Link>
+          <Link href={"/home/bots"}>
+            <FaRobot className="pl-2" size={40} />
           </Link>
         </div>
         <div className="absolute bottom-2 left-2">
