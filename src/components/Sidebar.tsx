@@ -26,7 +26,7 @@ function Sidebar() {
           >
             <FaUserFriends className="pl-2" size={40} />
           </Link>
-          <Link href={"/home/bots"}>
+          <Link href={"/home/bots/none"}>
             <FaRobot className="pl-2" size={40} />
           </Link>
         </div>
