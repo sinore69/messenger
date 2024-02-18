@@ -33,3 +33,9 @@ export type friendrequest = {
   senderId: string;
   recieverId: string;
 };
+
+export type botMessage = {
+  message:string,
+  sender:string,
+  reciever:string,
+};
