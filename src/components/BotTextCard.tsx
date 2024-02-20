@@ -15,7 +15,6 @@ const BotTextCard: React.FC<props> = ({ content }) => {
           </div>
           <div className="xl:w-96 text-right"></div>
         </div>
-        <div className="h-1"></div>
       </div>
     );
   return (
@@ -28,7 +27,6 @@ const BotTextCard: React.FC<props> = ({ content }) => {
           </div>
         </div>
       </div>
-      <div className="h-1 "></div>
     </div>
   );
 };

@@ -4,14 +4,19 @@ import { useState } from "react";
 import { cryptoBotMenu } from "@/BotIntro/cryptoBot";
 import { botMessage } from "@/utils/types";
 import BotTextCard from "./BotTextCard";
-import InputMessage from "./InputMessage";
+import BotTextInput from "./BotTextInput";
 interface props {
   userName: string;
+  botName: string;
 }
-function ChatBot({ userName }: props) {
+
+function ChatBot({ userName, botName }: props) {
   const [conversation, setConversation] = useState<botMessage[]>([
     cryptoBotMenu,
   ]);
+  const updateState = (newValue: botMessage) => {
+    setConversation((prev) => [...prev, newValue]);
+  };
   return (
     <div>
       <div>
@@ -19,7 +24,8 @@ function ChatBot({ userName }: props) {
           <BotTextCard key={item.sender} content={item}></BotTextCard>
         ))}
       </div>
-      <div className="absolute bottom-0 bg-blue-100">
+      <div className="absolute bottom-0">
+        <BotTextInput userName={userName} botName={botName} updateState={updateState} />
       </div>
     </div>
   );

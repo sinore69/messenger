@@ -21,7 +21,7 @@ async function Bots({ params }: pageprops) {
     <div className="xl:w-full  border-l-2 border-deluge-300 h-screen flex flex-col">
       <BotNameBanner botName={bot} />
       <div className="h-full w-full bg-blue-100 overflow-auto">
-        <ChatBot userName={userName.username!}/>
+        <ChatBot userName={userName.username!} botName={bot}/>
       </div>
     </div>
   );
