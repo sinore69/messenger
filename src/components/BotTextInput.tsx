@@ -1,5 +1,4 @@
 import { getCryptoData } from "@/server actions/getCrypto";
-import { messages } from "@/utils/types";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { LuSendHorizonal } from "react-icons/lu";
@@ -23,8 +22,9 @@ function BotTextInput({ userName, botName, updateState }: pageprops) {
         data.message = data.message.trim();
         if (data.message !== "") {
           const res = await getCryptoData(data);
+          updateState(data);
+          updateState(res);
         }
-        updateState(data);
         resetField("message");
       }
     } catch (error) {
