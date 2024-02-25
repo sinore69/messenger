@@ -12,7 +12,7 @@ export async function GET(request: NextRequest, { params }: any) {
       username: username,
     });
 
-    if (curruser && user[0].id === curruser.id)
+    if (curruser && user && user[0].username === curruser.username)
       return NextResponse.json("you can't add yourself");
 
     const userjson = clientuser(user[0]);

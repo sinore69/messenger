@@ -10,7 +10,7 @@ const TextCrad: React.FC<props> = ({ chat, chatId }) => {
     return (
       <div className="flex flex-col">
         <div className="flex flex-row xl:gap-x-80 lg:gap-x-60">
-          <div className="xl:w-96 lg:w-56 md:w-72 "></div>
+          <div className="w-14 xl:w-96 lg:w-56 md:w-72 "></div>
           <div className="w-96">
             <div className="bg-deluge-300 text-justify rounded-lg p-2 float-right">
               {chat.content}

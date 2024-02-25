@@ -7,13 +7,13 @@ async function sendRequest(friendId: string, currUserId: string) {
       recieverId: friendId,
     },
   });
-  const alreadyFriend = await prisma.friends.findMany({
+  const alreadyFriend = await prisma.friends.findFirst({
     where: {
       username: currUserId,
       friendOf: friendId,
     },
   });
-  if (alreadyFriend == null && duplicate == null) {
+  if (alreadyFriend === null && duplicate === null) {
     await prisma.friendrequest.create({
       data: {
         senderId: currUserId,
