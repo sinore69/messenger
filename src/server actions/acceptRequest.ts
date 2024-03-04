@@ -5,10 +5,12 @@ import prisma from "@/orm/prisma";
 import { User } from "@clerk/nextjs/server";
 async function acceptRequest(userName: string) {
   try {
-    const currUser = await currentUser();
-    const senderId = await clerkClient.users.getUserList({
-      username: [userName],
-    });
+    const [currUser, senderId] = await Promise.all([
+      await currentUser(),
+      await clerkClient.users.getUserList({
+        username: [userName],
+      }),
+    ]);
     //check for duplicate (this logic block can be removed to improve performance)
     const duplicate = await prisma.user.findFirst({
       where: {

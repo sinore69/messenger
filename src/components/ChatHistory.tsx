@@ -25,8 +25,8 @@ const ChatHistory: React.FC<pageprops> = ({ conversation, chatId }) => {
     };
   }, [chat,channel]);
   return (
-    <div className=" pl-1 pt-1 flex bg-white h-full w-full overflow-auto">
-      <div>
+    <div className=" pl-1 pt-1 flex bg-white h-full w-80 sm:w-full overflow-auto">
+      <div className="w-80 sm:w-full">
         {chat?.map((item: chats) => (
           <div key={item.id} ref={lastseen}>
             <TextCrad key={item.id} chat={item} chatId={chatId} />
